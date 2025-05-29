@@ -49,7 +49,7 @@ thead.addEventListener('click', (even) => {
   const tbody = document.querySelector('tbody');
 
   tbody.innerHTML = '';
-  rows.forEach((row) => tbody.appendChild(row));
+  rowsArr.forEach((row) => tbody.appendChild(row));
 });
 
 const rows = document.querySelectorAll('tbody tr');
@@ -83,7 +83,7 @@ labelAge.textContent = 'Age:';
 
 const inputAge = document.createElement('input');
 
-inputAge.name = 'name';
+inputAge.name = 'age';
 inputAge.type = 'number';
 inputAge.setAttribute('data-qa', 'age');
 inputAge.required = true;
@@ -94,7 +94,7 @@ labelPosition.textContent = 'Position:';
 
 const inputPosition = document.createElement('input');
 
-inputPosition.name = 'name';
+inputPosition.name = 'position';
 inputPosition.type = 'text';
 inputPosition.setAttribute('data-qa', 'position');
 inputPosition.required = true;
@@ -105,9 +105,9 @@ labelSalary.textContent = 'Salary:';
 
 const inputSalary = document.createElement('input');
 
-inputSalary.name = 'name';
+inputSalary.name = 'salary';
 inputSalary.type = 'number';
-inputSalary.setAttribute('data-qa', 'Salary');
+inputSalary.setAttribute('data-qa', 'salary');
 inputSalary.required = true;
 
 const labelOffice = document.createElement('label');
