@@ -223,6 +223,15 @@ form.addEventListener('submit', (sendForm) => {
         .forEach((r) => r.classList.remove('active'));
       this.classList.add('active');
     });
+  } else if (
+    valueName.length >= 4 ||
+    valueAge >= 18 ||
+    valueAge <= 90 ||
+    valueSalary !== undefined ||
+    valuePosition !== undefined ||
+    valueOffice !== undefined
+  ) {
+    pushNotification('warning', 'Error', 'Please check the form fields');
   } else {
     pushNotification('error', 'Error', 'Please check the form fields');
   }
