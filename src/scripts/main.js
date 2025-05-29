@@ -187,7 +187,7 @@ form.addEventListener('submit', (sendForm) => {
     valueAge >= 18 &&
     valueAge <= 90 &&
     valueSalary !== undefined &&
-    valuePosition !== undefined &&
+    valuePosition.trim().length >= 1 &&
     valueOffice !== undefined
   ) {
     const tr = document.createElement('tr');
