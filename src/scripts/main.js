@@ -223,16 +223,50 @@ form.addEventListener('submit', (sendForm) => {
         .forEach((r) => r.classList.remove('active'));
       this.classList.add('active');
     });
-  } else if (
-    valueName.length >= 4 ||
-    valueAge >= 18 ||
-    valueAge <= 90 ||
-    valueSalary !== undefined ||
-    valuePosition !== undefined ||
-    valueOffice !== undefined
-  ) {
-    pushNotification('warning', 'Error', 'Please check the form fields');
   } else {
     pushNotification('error', 'Error', 'Please check the form fields');
+  }
+});
+
+const tbodyDbl = document.querySelector('tbody');
+let activeInput = null;
+
+tbodyDbl.addEventListener('dblclick', (remove) => {
+  if (remove.target.tagName === 'TD') {
+    if (activeInput !== null) {
+      return;
+    }
+
+    const td = remove.target;
+    let initialValue = td.textContent;
+
+    td.textContent = '';
+
+    const input = document.createElement('input');
+
+    input.classList.add('cell-input');
+    td.appendChild(input);
+    activeInput = input;
+    input.focus();
+
+    input.value = initialValue;
+
+    input.addEventListener('blur', () => {
+      if (input.value.trim() === '') {
+        td.textContent = initialValue;
+      } else {
+        initialValue = input.value.trim();
+      }
+
+      input.innerHTML = '';
+      td.textContent = initialValue;
+      activeInput = null;
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        input.blur();
+      }
+    });
   }
 });
