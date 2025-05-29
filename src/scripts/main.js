@@ -186,6 +186,16 @@ form.addEventListener('submit', (sendForm) => {
   const valuePosition = inputPosition.value;
   const valueOffice = select.value;
 
+  if (valuePosition.trim().length < 1) {
+    pushNotification(
+      'error',
+      'Position field is required',
+      'Please enter a valid position',
+    );
+
+    return;
+  }
+
   if (
     valueName.length >= 4 &&
     valueAge >= 18 &&
@@ -227,12 +237,6 @@ form.addEventListener('submit', (sendForm) => {
         .forEach((r) => r.classList.remove('active'));
       this.classList.add('active');
     });
-  } else if (valuePosition.trim().length < 1) {
-    pushNotification(
-      'error',
-      'Position field is required',
-      'Please enter a valid position',
-    );
   } else {
     pushNotification('error', 'Error', 'Please check the form fields');
   }
