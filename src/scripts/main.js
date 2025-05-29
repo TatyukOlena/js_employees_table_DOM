@@ -227,6 +227,8 @@ form.addEventListener('submit', (sendForm) => {
         .forEach((r) => r.classList.remove('active'));
       this.classList.add('active');
     });
+  } else if (valuePosition === '') {
+    pushNotification('Error', 'Position field is required', 'error');
   } else {
     pushNotification('error', 'Error', 'Please check the form fields');
   }
