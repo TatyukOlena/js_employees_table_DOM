@@ -228,7 +228,11 @@ form.addEventListener('submit', (sendForm) => {
       this.classList.add('active');
     });
   } else if (valuePosition.trim().length < 1) {
-    pushNotification('error', 'Position field is required', 'error');
+    pushNotification(
+      'error',
+      'Position field is required',
+      'Please enter a valid position',
+    );
   } else {
     pushNotification('error', 'Error', 'Please check the form fields');
   }
