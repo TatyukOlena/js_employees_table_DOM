@@ -171,6 +171,10 @@ const pushNotification = (type, title, description) => {
   notification.appendChild(heading);
   notification.appendChild(text);
   document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.remove();
+  }, 2000);
 };
 
 form.addEventListener('submit', (sendForm) => {
